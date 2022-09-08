@@ -2,8 +2,8 @@
 import { Link } from '@inertiajs/inertia-vue3';
 
 defineProps({
-  canLogin: Boolean,
-  canRegister: Boolean,
+  canLogin: { type: Boolean, default: true },
+  canRegister: { type: Boolean, default: true },
 })
 </script>
 

@@ -1,5 +1,10 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Autoplay } from 'swiper';
+
+import 'swiper/css';
+import 'swiper/css/autoplay';
 
 import Navbar from '../Components/Navbar.vue';
 
@@ -11,17 +16,94 @@ defineProps({
 })
 </script>
 
+<style scoped>
+.headline {
+    letter-spacing: .1rem;
+    line-height: 4.5rem;
+}
+
+.genre::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.thephotoargus.com/wp-content/uploads/2019/08/fineartphotography01.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(1px);
+}
+
+.genre p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+</style>
 
 <template>
 
     <Head title="Halo" />
-    <Navbar canLogin="canLogin" canRegister="canRegister" />
-    <div class="container mx-auto h-96 flex items-baseline justify-center py-6">
-        <img class="w-[162px] h-[270px] rounded-md" src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" />
-        <img class="w-[194px] h-[309px] rounded-md b-4" src="http://ecx.images-amazon.com/images/I/51UJnL3Tx6L.jpg" />
-        <img class="w-[226px] h-[341px] rounded-md" src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" />
-        <img class="w-[194px] h-[309px] rounded-md b-4" src="http://ecx.images-amazon.com/images/I/51UJnL3Tx6L.jpg" />
-        <img class="w-[162px] h-[270px] rounded-md" src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" />
+    <Navbar />
+    <div class="container mx-auto">
+        <section class="h-96 flex items-center justify-between py-6">
+            <div>
+                <p class="text-6xl w-[576px] headline mb-8">Best Selling Books of <span class="font-bold">All
+                        Time</span>
+                </p>
+                <Link class="bg-gray-900 text-white font-semibold px-12 py-3" as="button" type="button">See More</Link>
+            </div>
+            <swiper :modules="[Autoplay]" :slides-per-view="1" autoplay>
+                <swiper-slide class="w-8"><img class="w-[226px] h-[341px] rounded-md"
+                        src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" /></swiper-slide>
+                <swiper-slide class="w-8"><img class="w-[226px] h-[341px] rounded-md"
+                        src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" /></swiper-slide>
+                <swiper-slide class="w-8"><img class="w-[226px] h-[341px] rounded-md"
+                        src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" /></swiper-slide>
+                <!-- <swiper-slide>
+                        <img class="w-[194px] h-[309px] rounded-md"
+                            src="http://ecx.images-amazon.com/images/I/51UJnL3Tx6L.jpg" />
+                    </swiper-slide>
+                    <swiper-slide>
+                        
+                    </swiper-slide>
+                    <swiper-slide>
+                        <img class="w-[194px] h-[309px] rounded-md"
+                            src="http://ecx.images-amazon.com/images/I/51UJnL3Tx6L.jpg" />
+                    </swiper-slide> -->
+            </swiper>
+            <!-- <img class="w-[162px] h-[270px] rounded-md" src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" /> -->
+            <!-- <img class="w-[162px] h-[270px] rounded-md" src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" /> -->
+        </section>
+        <section>
+            <div class="flex items-center justify-between">
+                <p class="text-2xl font-bold mb-4">Popular Genre</p>
+                <p class="font-semibold text-gray-500">See all</p>
+            </div>
+            <div class="flex items-center justify-between">
+                <div class="relative genre w-full h-64 grid place-items-center px-4">
+                    <p class="text-white font-bold">Arts & Photography</p>
+                </div>
+                <div class="relative genre w-full h-64 grid place-items-center px-4 mx-8">
+                    <p class="text-white font-bold">Arts & Photography</p>
+                </div>
+                <div class="relative genre w-full h-64 grid place-items-center px-4">
+                    <p class="text-white font-bold">Arts & Photography</p>
+                </div>
+                <div class="relative genre w-full h-64 grid place-items-center px-4 mx-8">
+                    <p class="text-white font-bold">Arts & Photography</p>
+                </div>
+                <div class="relative genre w-full h-64 grid place-items-center px-4">
+                    <p class="text-white font-bold">Arts & Photography</p>
+                </div>
+                <div class="relative genre w-full h-64 grid place-items-center px-4 ml-8">
+                    <p class="text-white font-bold">Arts & Photography</p>
+                </div>
+            </div>
+        </section>
     </div>
     <!-- <div
         class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
