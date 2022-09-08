@@ -1,6 +1,8 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
 
+import Navbar from '../Components/Navbar.vue';
+
 defineProps({
     canLogin: Boolean,
     canRegister: Boolean,
@@ -9,12 +11,17 @@ defineProps({
 })
 </script>
 
-<template>
-    <Head title="Welcome" />
 
-    <div class="w-screen h-96 grid place-items-center">
-        <!-- gradient bg-blue-1000, bg-sky-800 and bg-white -->
-        <p>Maklo</p>
+<template>
+
+    <Head title="Halo" />
+    <Navbar canLogin="canLogin" canRegister="canRegister" />
+    <div class="container mx-auto h-96 flex items-baseline justify-center py-6">
+        <img class="w-[162px] h-[270px] rounded-md" src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" />
+        <img class="w-[194px] h-[309px] rounded-md b-4" src="http://ecx.images-amazon.com/images/I/51UJnL3Tx6L.jpg" />
+        <img class="w-[226px] h-[341px] rounded-md" src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" />
+        <img class="w-[194px] h-[309px] rounded-md b-4" src="http://ecx.images-amazon.com/images/I/51UJnL3Tx6L.jpg" />
+        <img class="w-[162px] h-[270px] rounded-md" src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" />
     </div>
     <!-- <div
         class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
