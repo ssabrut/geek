@@ -11,12 +11,11 @@ return new class extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('books', function (Blueprint $table) {
-            $table->string('id')->unique()->primary();
-            $table->string('author_id');
-            $table->foreign('author_id')->references('id')->on('authors');
-            $table->string('title');
-            $table->string('image_url');
+        Schema::create('book_genres', function (Blueprint $table) {
+            $table->string('book_id');
+            $table->string('genre_id');
+            $table->foreign('book_id')->references('id')->on('books');
+            $table->foreign('genre_id')->references('id')->on('genres');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('books');
+        Schema::dropIfExists('book_genres');
     }
 };

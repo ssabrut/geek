@@ -11,14 +11,18 @@ class Book extends Model {
     protected $guarded = ['id'];
 
     public function author() {
-        return $this->belongsTo(Author::class);
+        return $this->belongsTo(Authors::class);
     }
 
-    public function category() {
-        return $this->belongsTo(Category::class);
+    public function genres() {
+        return $this->hasMany(Genre::class);
     }
 
     public function user() {
         return $this->belongsTo(User::class);
+    }
+
+    public function publisher() {
+        return $this->belongsTo(Publisher::class);
     }
 }

@@ -11,8 +11,11 @@ return new class extends Migration {
      * @return void
      */
     public function up() {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->string('slug')->after('name');
+        Schema::create('publishers', function (Blueprint $table) {
+            $table->string('id')->unique()->primary();
+            $table->string('name');
+            $table->string('slug');
+            $table->timestamps();
         });
     }
 
@@ -22,8 +25,6 @@ return new class extends Migration {
      * @return void
      */
     public function down() {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->dropColumn('slug');
-        });
+        Schema::dropIfExists('publishers');
     }
 };
