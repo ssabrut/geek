@@ -22,6 +22,23 @@ defineProps({
     line-height: 4.5rem;
 }
 
+.swiper-hero {
+    width: 544px !important;
+    overflow-y: visible;
+    margin: 0;
+}
+
+.swiper-hero .swiper-slide {
+    width: fit-content !important;
+    margin: 27px 0;
+}
+
+.swiper-hero .swiper-slide.swiper-slide-active,
+.swiper-hero .swiper-slide.swiper-slide-duplicate.swiper-slide-active {
+    transform: scale(1.15);
+    z-index: 5;
+}
+
 .genre::before {
     content: '';
     position: absolute;
@@ -49,34 +66,36 @@ defineProps({
     <Head title="Halo" />
     <Navbar />
     <div class="container mx-auto">
-        <section class="h-96 flex items-center justify-between py-6">
+        <section class="h-96 flex items-center justify-between py-6 mr-16">
             <div>
                 <p class="text-6xl w-[576px] headline mb-8">Best Selling Books of <span class="font-bold">All
                         Time</span>
                 </p>
                 <Link class="bg-gray-900 text-white font-semibold px-12 py-3" as="button" type="button">See More</Link>
             </div>
-            <swiper :modules="[Autoplay]" :slides-per-view="1" autoplay>
-                <swiper-slide class="w-8"><img class="w-[226px] h-[341px] rounded-md"
-                        src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" /></swiper-slide>
-                <swiper-slide class="w-8"><img class="w-[226px] h-[341px] rounded-md"
-                        src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" /></swiper-slide>
-                <swiper-slide class="w-8"><img class="w-[226px] h-[341px] rounded-md"
-                        src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" /></swiper-slide>
-                <!-- <swiper-slide>
-                        <img class="w-[194px] h-[309px] rounded-md"
-                            src="http://ecx.images-amazon.com/images/I/51UJnL3Tx6L.jpg" />
-                    </swiper-slide>
-                    <swiper-slide>
-                        
-                    </swiper-slide>
-                    <swiper-slide>
-                        <img class="w-[194px] h-[309px] rounded-md"
-                            src="http://ecx.images-amazon.com/images/I/51UJnL3Tx6L.jpg" />
-                    </swiper-slide> -->
+            <swiper class="swiper-hero" :modules="[Autoplay]" :slides-per-view="3" :spaceBetween="5"
+                :centeredSlides="true" :allowTouchMove="false" :loop="true" autoplay>
+                <swiper-slide>
+                    <img class="w-[178px] h-[286px] rounded-md"
+                        src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" />
+                </swiper-slide>
+                <swiper-slide>
+                    <img class="w-[178px] h-[286px] rounded-md"
+                        src="http://ecx.images-amazon.com/images/I/51UJnL3Tx6L.jpg" />
+                </swiper-slide>
+                <swiper-slide>
+                    <img class="w-[178px] h-[286px] rounded-md"
+                        src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" />
+                </swiper-slide>
+                <swiper-slide>
+                    <img class="w-[178px] h-[286px] rounded-md"
+                        src="http://ecx.images-amazon.com/images/I/51UJnL3Tx6L.jpg" />
+                </swiper-slide>
+                <swiper-slide>
+                    <img class="w-[178px] h-[286px] rounded-md"
+                        src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" />
+                </swiper-slide>
             </swiper>
-            <!-- <img class="w-[162px] h-[270px] rounded-md" src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" /> -->
-            <!-- <img class="w-[162px] h-[270px] rounded-md" src="http://ecx.images-amazon.com/images/I/51l6XIoa3rL.jpg" /> -->
         </section>
         <section>
             <div class="flex items-center justify-between">
